@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Facebook, Instagram, Youtube, Linkedin, Phone, MessageCircle, Mail } from 'lucide-react';
 
+
+
 export default function EllenexProperties() {
   const [hoveredSocial, setHoveredSocial] = useState(null);
   const [hoveredLink, setHoveredLink] = useState(null);

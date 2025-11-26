@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
+import ownerurl from '/src/assets/img/logo.png';
+import logourl from '/src/assets/img/ellenx.jpg';
 import { Facebook, Instagram, Youtube, Linkedin, Phone, MessageCircle, Mail } from 'lucide-react';
-
-
 
 export default function EllenexProperties() {
   const [hoveredSocial, setHoveredSocial] = useState(null);
   const [hoveredLink, setHoveredLink] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
- // When you deploy to your server, update these paths to match your folder structure
-  // Example: '/img/ellenx.jpg' or '/assets/logo.png'
-  const logoUrl = '/src/assets/img/ellenx.jpg'; // Update this path to match your server
-  const ownerUrl ='/src/assets/img/logo.png'; // Update this path to match your server
+  const logoUrl = ownerurl;    // Correct
+  const ownerUrl = logourl;    // Correct
+
 
 
   // Auto-slide between logo and owner photo

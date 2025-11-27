@@ -103,7 +103,7 @@ export default function EllenexProperties() {
           {/* Logo/Avatar Slider */}
           <div className="mb-6 flex justify-center">
             <div className="relative">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-linear-to-br from-white to-gray-100 p-1 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+              <div className="w-48 h-48 sm:w-56 sm:h-56  rounded-full bg-linear-to-br from-white to-gray-100 p-1 shadow-2xl transform hover:scale-105 transition-transform duration-300">
                 <div className="w-full h-full rounded-full bg-yellow-400 flex items-center justify-center overflow-hidden shadow-inner relative">
                   {/* Default EP Text */}
                   {!logoUrl && !ownerUrl && (

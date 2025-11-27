@@ -34,14 +34,14 @@ export default function EllenexProperties() {
   const contactLinks = [
     { 
       label: 'SALES WHATSAPP', 
-      value: '+2349072908239', 
+      value: '+234 703 732 8339', 
       url: 'https://wa.me/+2347037328339',
       icon: MessageCircle,
       color: 'from-green-500 to-green-600'
     },
     { 
       label: 'RENT WHATSAPP', 
-      value: '+2348109012192', 
+      value: '+234 703 732 8339', 
       url: 'https://wa.me/+2347037328339',
       icon: MessageCircle,
       color: 'from-green-500 to-green-600'

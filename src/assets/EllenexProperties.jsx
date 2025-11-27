@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import ownerurl from '/src/assets/img/logo.png';
-import logourl from '/src/assets/img/ellenx.jpg';
-import { Facebook, Instagram, Youtube, Linkedin, Phone, MessageCircle, Mail } from 'lucide-react';
+import React, { useState } from "react";
+import reactLogo from "./img/logo1.png";      // ✅ matches actual file
+import logourl from "./img/ellamm.jpg";     // ✅ matches actual file
+import { Facebook, Instagram, Youtube, Linkedin, Phone, MessageCircle, Mail } from "lucide-react";
 
 export default function EllenexProperties() {
   const [hoveredSocial, setHoveredSocial] = useState(null);
   const [hoveredLink, setHoveredLink] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const logoUrl = ownerurl;    // Correct
-  const ownerUrl = logourl;    // Correct
+  const logoUrl = reactLogo;   // ✅ use the imported file
+  const ownerUrl = logourl;    // ✅ use the imported file
+
 
 
 
@@ -92,7 +93,7 @@ export default function EllenexProperties() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-slate-100">
       {/* Header/Hero Section */}
-      <div className="relative overflow-hidden bg-linear-to-br from-yellow-400 via-yellow-500 to-amber-500 text-gray-900">
+      <div className="relative overflow-hidden bg-linear-to-br from-gray-100 via-gray-200 to-gray-300 text-gray-900">
         <div className="absolute inset-0 bg-black opacity-5"></div>
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.2), transparent 50%), radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.3), transparent 50%)'
@@ -179,15 +180,18 @@ export default function EllenexProperties() {
 
           {/* Description */}
           <p className="text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed text-gray-800">
-           We empower investors to make smarter property investments and achieve their dream homes faster than ever.
+           At Ellenex Properties, we help investors make smart real estate decisions and guide clients to
+            their dream homes with confidence and speed. We take pride in delivering exceptional service,
+             whether you’re selling a property or searching for a new one.
           </p>
 
           <p className="text-sm sm:text-base mb-4 max-w-2xl mx-auto leading-relaxed text-gray-700">
-            At Ellenex Properties, we make buying, selling, and finding your dream home simple, smooth, and stress-free.
+            Each client is paired with a dedicated agent who manages the entire process from start to finish,
+             providing clear communication and weekly updates along the way.
           </p>
 
           <p className="text-sm sm:text-base max-w-2xl mx-auto leading-relaxed text-gray-700">
-           A dedicated agent, weekly updates, and expert guidance—ensuring your property sells smoothly from start to finish.
+           At Ellenex Properties, your goals are our priority and we’re here to make every step seamless
           </p>
         </div>
       </div>
@@ -304,7 +308,7 @@ export default function EllenexProperties() {
       </div>
 
       {/* Footer */}
-      <div className="bg-linear-to-r from-yellow-400 via-yellow-500 to-amber-500 text-gray-900 py-8 mt-12">
+      <div className="bg-linear-to-r from-white via-yellow-100 to-amber-100 text-gray-900 py-8 mt-12">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-lg font-semibold mb-2">Ellenex Properties</p>
           <p className="text-sm text-gray-800">Your Trusted Real Estate Partner</p>

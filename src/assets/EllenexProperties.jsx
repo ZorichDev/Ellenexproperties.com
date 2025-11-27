@@ -40,13 +40,6 @@ export default function EllenexProperties() {
       color: 'from-green-500 to-green-600'
     },
     { 
-      label: 'RENT WHATSAPP', 
-      value: '+234 703 732 8339', 
-      url: 'https://wa.me/+2347037328339',
-      icon: MessageCircle,
-      color: 'from-green-500 to-green-600'
-    },
-    { 
       label: 'CALL US', 
       value: '+234 703 732 8339', 
       url: 'tel:+234 703 732 8339',
@@ -55,36 +48,36 @@ export default function EllenexProperties() {
     },
     { 
       label: 'INSTAGRAM', 
-      value: '@ELLENEXPROPERTIES', 
-      url: 'https://instagram.com/ellenexproperties',
+      value: '@Ellenexproperties_realtor', 
+      url: 'https://instagram.com/Ellenexproperties_realtor',
       icon: Instagram,
       color: 'from-pink-500 to-purple-600'
     },
     { 
       label: 'FACEBOOK', 
-      value: 'Ellenex Properties', 
-      url: 'https://facebook.com/ellenexproperties',
+      value: 'Ellenex property', 
+      url: 'https://facebook.com/Ellenex property',
       icon: Facebook,
       color: 'from-blue-600 to-blue-700'
     },
     { 
       label: 'YOUTUBE', 
-      value: 'Ellenex Properties', 
-      url: 'https://youtube.com/@ellenexproperties',
+      value: 'Ellenex properties', 
+      url: 'https://youtube.com/@Ellenex properties',
       icon: Youtube,
       color: 'from-red-500 to-red-600'
     },
     { 
       label: 'LINKEDIN', 
-      value: 'Ellenex Properties', 
-      url: 'https://linkedin.com/company/ellenexproperties',
+      value: 'Ellenex properties ', 
+      url: 'https://linkedin.com/company/@Ellenex property ',
       icon: Linkedin,
       color: 'from-blue-700 to-blue-800'
     },
     { 
       label: 'EMAIL US', 
-      value: 'info@ellenexproperties.com', 
-      url: 'mailto:info@ellenexproperties.com',
+      value: 'Ellenexnero@gmail.com', 
+      url: 'mailto:Ellenexnero@gmail.com',
       icon: Mail,
       color: 'from-gray-600 to-gray-700'
     },
@@ -175,7 +168,7 @@ export default function EllenexProperties() {
 
           {/* Tagline */}
           <p className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">
-            TOP-RATED REALTOR SERVING LEKKI, IKOYI, AND AJAH
+            TOP-RATED REALTOR SERVING Lekki/AJAH/Vi/Ikoyi
           </p>
 
           {/* Description */}

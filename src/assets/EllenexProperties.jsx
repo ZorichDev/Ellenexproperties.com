@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import reactLogo from "./img/ellamm.jpg";      // ✅ matches actual file
+import { AiFillTikTok } from "react-icons/ai";
+import { PiWhatsappLogoDuotone } from "react-icons/pi";
 import { Facebook, Instagram, Youtube, Linkedin, Music, Phone, MessageCircle, Mail } from "lucide-react";
 
 export default function EllenexProperties() {
@@ -16,7 +18,7 @@ export default function EllenexProperties() {
     { icon: Instagram, url: 'https://instagram.com/Ellenexproperties_realtor', color: '#E4405F', name: 'instagram' },
     { icon: Youtube, url: 'https://youtube.com/@ellenexproperties?si=v2Xy4vK_iNB-dmKl', color: '#FF0000', name: 'youtube' },
     { icon: Linkedin, url: 'https://www.linkedin.com/in/ellenex-property-831915361?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', color: '#0A66C2', name: 'linkedin' },
-    { icon: Music, url: 'https://www.tiktok.com/@ellenex.propertie6?_r=1&_t=ZS-91lvVNSa5CP', color: '#000000', name: 'tiktok' }
+    { icon: AiFillTikTok, url: 'https://www.tiktok.com/@ellenex.propertie6?_r=1&_t=ZS-91lvVNSa5CP', color: '#000000', name: 'tiktok' }
   ];
 
   const contactLinks = [
@@ -24,7 +26,7 @@ export default function EllenexProperties() {
       label: 'SALES WHATSAPP', 
       value: '+234 703 732 8339', 
       url: 'https://wa.me/+2347037328339',
-      icon: MessageCircle,
+      icon: PiWhatsappLogoDuotone,
       color: 'from-green-500 to-green-600'
     },
     { 
@@ -66,7 +68,7 @@ export default function EllenexProperties() {
      label: 'TIKTOK', 
      value: ' Ellenex properties', 
      url: 'https://www.tiktok.com/@ellenex.propertie6?_r=1&_t=ZS-91lvVNSa5CP',
-     icon: Music,
+     icon: AiFillTikTok,
      color: 'from-black to-gray-900'
     },
     { 

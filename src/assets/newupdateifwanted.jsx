@@ -1,25 +1,22 @@
 import React, { useState } from "react";
-import reactLogo from "./img/logo1.png";      // ✅ matches actual file
-import logourl from "./img/ellamm.jpg";     // ✅ matches actual file
-import { Facebook, Instagram, Youtube, Linkedin,Music, Phone, MessageCircle, Mail } from "lucide-react";
+import reactLogo from "./img/logo1.png";
+import logourl from "./img/ellamm.jpg";
+import { Facebook, Instagram, Youtube, Linkedin, Phone, MessageCircle, Mail } from "lucide-react";
 
 export default function EllenexProperties() {
   const [hoveredSocial, setHoveredSocial] = useState(null);
   const [hoveredLink, setHoveredLink] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const logoUrl = reactLogo;   // ✅ use the imported file
-  const ownerUrl = logourl;    // ✅ use the imported file
+  const logoUrl = reactLogo;
+  const ownerUrl = logourl;
 
-
-
-
-  // Auto-slide between logo and owner photo
   React.useEffect(() => {
-    if (logoUrl && ownerUrl ) {
+    if (logoUrl && ownerUrl) {
       const interval = setInterval(() => {
         setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-      }, 4000); // Change slide every 4 seconds
+      }, 4000);
       return () => clearInterval(interval);
     }
   }, [logoUrl, ownerUrl]);
@@ -29,7 +26,6 @@ export default function EllenexProperties() {
     { icon: Instagram, url: 'https://instagram.com/Ellenexproperties_realtor', color: '#E4405F', name: 'instagram' },
     { icon: Youtube, url: 'https://youtube.com/@ellenexproperties?si=v2Xy4vK_iNB-dmKl', color: '#FF0000', name: 'youtube' },
     { icon: Linkedin, url: 'https://www.linkedin.com/in/ellenex-property-831915361?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', color: '#0A66C2', name: 'linkedin' },
-    { icon: Music, url: 'https://www.tiktok.com/@ellenex.propertie6?_r=1&_t=ZS-91lvVNSa5CP', color: '#000000',name: 'tiktok' }
   ];
 
   const contactLinks = [
@@ -76,13 +72,6 @@ export default function EllenexProperties() {
       color: 'from-blue-700 to-blue-800'
     },
     { 
-     label: 'TIKTOK', 
-     value: ' Ellenex properties', 
-     url: 'https://www.tiktok.com/@ellenex.propertie6?_r=1&_t=ZS-91lvVNSa5CP',
-     icon: Music, // or Video icon from lucide-react
-     color: 'from-black to-gray-900'
-  },
-    { 
       label: 'EMAIL US', 
       value: 'Ellenexnero@gmail.com', 
       url: 'mailto:Ellenexnero@gmail.com',
@@ -92,28 +81,57 @@ export default function EllenexProperties() {
   ];
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-slate-100">
+    <div className={`min-h-screen transition-colors duration-500 ${
+      isDarkMode 
+        ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' 
+        : 'bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100'
+    }`}>
       {/* Header/Hero Section */}
-      <div className="relative overflow-hidden bg-linear-to-br from-gray-100 via-gray-200 to-gray-300 text-gray-900">
-        <div className="absolute inset-0 bg-black opacity-5"></div>
+      <div className={`relative overflow-hidden transition-colors duration-500 ${
+        isDarkMode
+          ? 'bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white'
+          : 'bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 text-gray-900'
+      }`}>
+        <div className={`absolute inset-0 transition-opacity duration-500 ${
+          isDarkMode ? 'bg-white opacity-5' : 'bg-black opacity-5'
+        }`}></div>
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.2), transparent 50%), radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.3), transparent 50%)'
         }}></div>
         
         <div className="relative max-w-4xl mx-auto px-4 py-12 sm:py-16 text-center">
+          {/* Dark Mode Toggle */}
+          <button
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className={`absolute top-4 right-4 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transform transition-all duration-300 hover:scale-110 ${
+              isDarkMode 
+                ? 'bg-yellow-400 text-gray-900' 
+                : 'bg-gray-800 text-yellow-400'
+            }`}
+            aria-label="Toggle dark mode"
+          >
+            {isDarkMode ? (
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+              </svg>
+            )}
+          </button>
+
           {/* Logo/Avatar Slider */}
           <div className="mb-6 flex justify-center">
             <div className="relative">
-              <div className="w-48 h-48 sm:w-56 sm:h-56  rounded-full bg-linear-to-br from-white to-gray-100 p-1 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+              <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-gradient-to-br from-white to-gray-100 p-1 shadow-2xl transform hover:scale-105 transition-transform duration-300">
                 <div className="w-full h-full rounded-full bg-yellow-400 flex items-center justify-center overflow-hidden shadow-inner relative">
-                  {/* Default EP Text */}
                   {!logoUrl && !ownerUrl && (
                     <div className="text-5xl sm:text-6xl font-bold text-white drop-shadow-lg">
                       EP
                     </div>
                   )}
                   
-                  {/* Logo Image */}
                   {logoUrl && (
                     <div 
                       className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
@@ -128,7 +146,6 @@ export default function EllenexProperties() {
                     </div>
                   )}
                   
-                  {/* Owner Photo */}
                   {ownerUrl && (
                     <div 
                       className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
@@ -145,7 +162,6 @@ export default function EllenexProperties() {
                 </div>
               </div>
               
-              {/* Slide Indicators */}
               {logoUrl && ownerUrl && (
                 <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
                   <button
@@ -168,38 +184,54 @@ export default function EllenexProperties() {
           </div>
 
           {/* Website Name */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 tracking-tight text-gray-900 drop-shadow-sm">
+          <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-3 tracking-tight drop-shadow-sm transition-colors duration-500 ${
+            isDarkMode ? 'text-white' : 'text-gray-900'
+          }`}>
             Ellenex-properties
           </h1>
           
-          <div className="w-24 h-1 bg-linear-to-r from-transparent via-gray-800 to-transparent mx-auto mb-6"></div>
+          <div className={`w-24 h-1 mx-auto mb-6 transition-colors duration-500 ${
+            isDarkMode 
+              ? 'bg-gradient-to-r from-transparent via-yellow-400 to-transparent' 
+              : 'bg-gradient-to-r from-transparent via-gray-800 to-transparent'
+          }`}></div>
 
           {/* Tagline */}
-          <p className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">
+          <p className={`text-xl sm:text-2xl font-semibold mb-4 transition-colors duration-500 ${
+            isDarkMode ? 'text-gray-100' : 'text-gray-800'
+          }`}>
             TOP-RATED REALTOR SERVING Lekki/AJAH/Vi/Ikoyi
           </p>
 
           {/* Description */}
-          <p className="text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed text-gray-800">
+          <p className={`text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed transition-colors duration-500 ${
+            isDarkMode ? 'text-gray-200' : 'text-gray-800'
+          }`}>
            At Ellenex Properties, we help investors make smart real estate decisions and guide clients to
             their dream homes with confidence and speed. We take pride in delivering exceptional service,
-             whether you’re selling a property or searching for a new one.
+             whether you're selling a property or searching for a new one.
           </p>
 
-          <p className="text-sm sm:text-base mb-4 max-w-2xl mx-auto leading-relaxed text-gray-700">
+          <p className={`text-sm sm:text-base mb-4 max-w-2xl mx-auto leading-relaxed transition-colors duration-500 ${
+            isDarkMode ? 'text-gray-300' : 'text-gray-700'
+          }`}>
             Each client is paired with a dedicated agent who manages the entire process from start to finish,
              providing clear communication and weekly updates along the way.
           </p>
 
-          <p className="text-sm sm:text-base max-w-2xl mx-auto leading-relaxed text-gray-700">
-           At Ellenex Properties, your goals are our priority and we’re here to make every step seamless
+          <p className={`text-sm sm:text-base max-w-2xl mx-auto leading-relaxed transition-colors duration-500 ${
+            isDarkMode ? 'text-gray-300' : 'text-gray-700'
+          }`}>
+           At Ellenex Properties, your goals are our priority and we're here to make every step seamless
           </p>
         </div>
       </div>
 
       {/* Social Media Section */}
       <div className="max-w-4xl mx-auto px-4 py-12">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800">
+        <h2 className={`text-2xl sm:text-3xl font-bold text-center mb-8 transition-colors duration-500 ${
+          isDarkMode ? 'text-white' : 'text-gray-800'
+        }`}>
           Connect With Us
         </h2>
         
@@ -214,9 +246,11 @@ export default function EllenexProperties() {
                 rel="noopener noreferrer"
                 onMouseEnter={() => setHoveredSocial(social.name)}
                 onMouseLeave={() => setHoveredSocial(null)}
-                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white shadow-lg flex items-center justify-center transform transition-all duration-300 hover:scale-110 hover:shadow-xl"
+                className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-lg flex items-center justify-center transform transition-all duration-300 hover:scale-110 hover:shadow-xl ${
+                  isDarkMode ? 'bg-gray-800' : 'bg-white'
+                }`}
                 style={{
-                  backgroundColor: hoveredSocial === social.name ? social.color : 'white',
+                  backgroundColor: hoveredSocial === social.name ? social.color : (isDarkMode ? '#1f2937' : 'white'),
                 }}
               >
                 <Icon 
@@ -232,7 +266,9 @@ export default function EllenexProperties() {
         </div>
 
         {/* Contact Links Section */}
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800">
+        <h2 className={`text-2xl sm:text-3xl font-bold text-center mb-8 transition-colors duration-500 ${
+          isDarkMode ? 'text-white' : 'text-gray-800'
+        }`}>
           Get In Touch
         </h2>
 
@@ -250,12 +286,13 @@ export default function EllenexProperties() {
                 className="block group"
               >
                 <div className={`
-                  relative overflow-hidden rounded-2xl bg-white shadow-md
+                  relative overflow-hidden rounded-2xl shadow-md
                   transform transition-all duration-300
                   ${hoveredLink === index ? 'scale-105 shadow-2xl' : 'hover:shadow-lg'}
+                  ${isDarkMode ? 'bg-gray-800' : 'bg-white'}
                 `}>
                   <div className={`
-                    absolute inset-0 bg-linear-to-r ${link.color} opacity-0 transition-opacity duration-300
+                    absolute inset-0 bg-gradient-to-r ${link.color} opacity-0 transition-opacity duration-300
                     ${hoveredLink === index ? 'opacity-100' : ''}
                   `}></div>
                   
@@ -263,7 +300,7 @@ export default function EllenexProperties() {
                     <div className="flex items-center gap-4">
                       <div className={`
                         w-12 h-12 rounded-full flex items-center justify-center
-                        bg-linear-to-r ${link.color}
+                        bg-gradient-to-r ${link.color}
                         transform transition-transform duration-300
                         ${hoveredLink === index ? 'scale-110' : ''}
                       `}>
@@ -273,14 +310,14 @@ export default function EllenexProperties() {
                         <p className={`
                           text-xs font-semibold uppercase tracking-wider mb-1
                           transition-colors duration-300
-                          ${hoveredLink === index ? 'text-white' : 'text-gray-500'}
+                          ${hoveredLink === index ? 'text-white' : (isDarkMode ? 'text-gray-400' : 'text-gray-500')}
                         `}>
                           {link.label}
                         </p>
                         <p className={`
                           text-base sm:text-lg font-bold
                           transition-colors duration-300
-                          ${hoveredLink === index ? 'text-white' : 'text-gray-800'}
+                          ${hoveredLink === index ? 'text-white' : (isDarkMode ? 'text-gray-100' : 'text-gray-800')}
                         `}>
                           {link.value}
                         </p>
@@ -309,11 +346,19 @@ export default function EllenexProperties() {
       </div>
 
       {/* Footer */}
-      <div className="bg-linear-to-r from-white via-yellow-100 to-amber-100 text-gray-900 py-8 mt-12">
+      <div className={`py-8 mt-12 transition-colors duration-500 ${
+        isDarkMode 
+          ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white' 
+          : 'bg-gradient-to-r from-white via-yellow-100 to-amber-100 text-gray-900'
+      }`}>
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-lg font-semibold mb-2">Ellenex Properties</p>
-          <p className="text-sm text-gray-800">Your Trusted Real Estate Partner</p>
-          <p className="text-xs text-gray-700 mt-4">© 2025 Ellenexproperties.com. All rights reserved.</p>
+          <p className={`text-sm transition-colors duration-500 ${
+            isDarkMode ? 'text-gray-300' : 'text-gray-800'
+          }`}>Your Trusted Real Estate Partner</p>
+          <p className={`text-xs mt-4 transition-colors duration-500 ${
+            isDarkMode ? 'text-gray-400' : 'text-gray-700'
+          }`}>© 2025 Ellenexproperties.com. All rights reserved.</p>
         </div>
       </div>
     </div>

@@ -1,35 +1,22 @@
 import React, { useState } from "react";
-import reactLogo from "./img/logo1.png";      // ✅ matches actual file
-import logourl from "./img/ellamm.jpg";     // ✅ matches actual file
-import { Facebook, Instagram, Youtube, Linkedin,Music, Phone, MessageCircle, Mail } from "lucide-react";
+import reactLogo from "./img/ellamm.jpg";      // ✅ matches actual file
+import { Facebook, Instagram, Youtube, Linkedin, Music, Phone, MessageCircle, Mail } from "lucide-react";
 
 export default function EllenexProperties() {
   const [hoveredSocial, setHoveredSocial] = useState(null);
   const [hoveredLink, setHoveredLink] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   const logoUrl = reactLogo;   // ✅ use the imported file
-  const ownerUrl = logourl;    // ✅ use the imported file
 
-
-
-
-  // Auto-slide between logo and owner photo
-  React.useEffect(() => {
-    if (logoUrl && ownerUrl ) {
-      const interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-      }, 4000); // Change slide every 4 seconds
-      return () => clearInterval(interval);
-    }
-  }, [logoUrl, ownerUrl]);
+  // Remove all slide-related state and effects
+  // Just use the logo directly
 
   const socialLinks = [
     { icon: Facebook, url: 'https://www.facebook.com/share/17nkaaMsxc/?mibextid=wwXIfr', color: '#1877F2', name: 'facebook' },
     { icon: Instagram, url: 'https://instagram.com/Ellenexproperties_realtor', color: '#E4405F', name: 'instagram' },
     { icon: Youtube, url: 'https://youtube.com/@ellenexproperties?si=v2Xy4vK_iNB-dmKl', color: '#FF0000', name: 'youtube' },
     { icon: Linkedin, url: 'https://www.linkedin.com/in/ellenex-property-831915361?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', color: '#0A66C2', name: 'linkedin' },
-    { icon: Music, url: 'https://www.tiktok.com/@ellenex.propertie6?_r=1&_t=ZS-91lvVNSa5CP', color: '#000000',name: 'tiktok' }
+    { icon: Music, url: 'https://www.tiktok.com/@ellenex.propertie6?_r=1&_t=ZS-91lvVNSa5CP', color: '#000000', name: 'tiktok' }
   ];
 
   const contactLinks = [
@@ -79,9 +66,9 @@ export default function EllenexProperties() {
      label: 'TIKTOK', 
      value: ' Ellenex properties', 
      url: 'https://www.tiktok.com/@ellenex.propertie6?_r=1&_t=ZS-91lvVNSa5CP',
-     icon: Music, // or Video icon from lucide-react
+     icon: Music,
      color: 'from-black to-gray-900'
-  },
+    },
     { 
       label: 'EMAIL US', 
       value: 'Ellenexnero@gmail.com', 
@@ -101,69 +88,25 @@ export default function EllenexProperties() {
         }}></div>
         
         <div className="relative max-w-4xl mx-auto px-4 py-12 sm:py-16 text-center">
-          {/* Logo/Avatar Slider */}
+          {/* Logo Section - Simplified */}
           <div className="mb-6 flex justify-center">
             <div className="relative">
-              <div className="w-48 h-48 sm:w-56 sm:h-56  rounded-full bg-linear-to-br from-white to-gray-100 p-1 shadow-2xl transform hover:scale-105 transition-transform duration-300">
-                <div className="w-full h-full rounded-full bg-yellow-400 flex items-center justify-center overflow-hidden shadow-inner relative">
-                  {/* Default EP Text */}
-                  {!logoUrl && !ownerUrl && (
+              <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-linear-to-br from-white to-gray-100 p-1 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <div className="w-full h-full rounded-full bg-yellow-400 flex items-center justify-center overflow-hidden shadow-inner">
+                  {/* Always show the logo */}
+                  {logoUrl ? (
+                    <img 
+                      src={logoUrl} 
+                      alt="Ellenex Properties Logo" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
                     <div className="text-5xl sm:text-6xl font-bold text-white drop-shadow-lg">
                       EP
                     </div>
                   )}
-                  
-                  {/* Logo Image */}
-                  {logoUrl && (
-                    <div 
-                      className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                        currentSlide === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                      }`}
-                    >
-                      <img 
-                        src={logoUrl} 
-                        alt="Ellenex Properties Logo" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
-                  
-                  {/* Owner Photo */}
-                  {ownerUrl && (
-                    <div 
-                      className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                        currentSlide === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                      }`}
-                    >
-                      <img 
-                        src={ownerUrl} 
-                        alt="Company Owner" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
                 </div>
               </div>
-              
-              {/* Slide Indicators */}
-              {logoUrl && ownerUrl && (
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
-                  <button
-                    onClick={() => setCurrentSlide(0)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      currentSlide === 0 ? 'bg-yellow-500 w-6' : 'bg-gray-400'
-                    }`}
-                    aria-label="Show logo"
-                  />
-                  <button
-                    onClick={() => setCurrentSlide(1)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      currentSlide === 1 ? 'bg-yellow-500 w-6' : 'bg-gray-400'
-                    }`}
-                    aria-label="Show owner"
-                  />
-                </div>
-              )}
             </div>
           </div>
 
@@ -183,7 +126,7 @@ export default function EllenexProperties() {
           <p className="text-base sm:text-lg mb-4 max-w-2xl mx-auto leading-relaxed text-gray-800">
            At Ellenex Properties, we help investors make smart real estate decisions and guide clients to
             their dream homes with confidence and speed. We take pride in delivering exceptional service,
-             whether you’re selling a property or searching for a new one.
+             whether you're selling a property or searching for a new one.
           </p>
 
           <p className="text-sm sm:text-base mb-4 max-w-2xl mx-auto leading-relaxed text-gray-700">
@@ -192,7 +135,7 @@ export default function EllenexProperties() {
           </p>
 
           <p className="text-sm sm:text-base max-w-2xl mx-auto leading-relaxed text-gray-700">
-           At Ellenex Properties, your goals are our priority and we’re here to make every step seamless
+           At Ellenex Properties, your goals are our priority and we're here to make every step seamless
           </p>
         </div>
       </div>

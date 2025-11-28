@@ -25,10 +25,10 @@ export default function EllenexProperties() {
   }, [logoUrl, ownerUrl]);
 
   const socialLinks = [
-    { icon: Facebook, url: 'https://facebook.com/ellenexproperties', color: '#1877F2', name: 'facebook' },
-    { icon: Instagram, url: 'https://instagram.com/ellenexproperties', color: '#E4405F', name: 'instagram' },
-    { icon: Youtube, url: 'https://youtube.com/@ellenexproperties', color: '#FF0000', name: 'youtube' },
-    { icon: Linkedin, url: 'https://linkedin.com/company/ellenexproperties', color: '#0A66C2', name: 'linkedin' },
+    { icon: Facebook, url: 'https://www.facebook.com/share/17nkaaMsxc/?mibextid=wwXIfr', color: '#1877F2', name: 'facebook' },
+    { icon: Instagram, url: 'https://instagram.com/Ellenexproperties_realtor', color: '#E4405F', name: 'instagram' },
+    { icon: Youtube, url: 'https://youtube.com/@ellenexproperties?si=v2Xy4vK_iNB-dmKl', color: '#FF0000', name: 'youtube' },
+    { icon: Linkedin, url: 'https://www.linkedin.com/in/ellenex-property-831915361?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', color: '#0A66C2', name: 'linkedin' },
   ];
 
   const contactLinks = [
@@ -56,21 +56,21 @@ export default function EllenexProperties() {
     { 
       label: 'FACEBOOK', 
       value: 'Ellenex property', 
-      url: 'https://facebook.com/Ellenex property',
+      url: 'https://www.facebook.com/share/17nkaaMsxc/?mibextid=wwXIfr',
       icon: Facebook,
       color: 'from-blue-600 to-blue-700'
     },
     { 
       label: 'YOUTUBE', 
       value: 'Ellenex properties', 
-      url: 'https://youtube.com/@Ellenex properties',
+      url: 'https://youtube.com/@ellenexproperties?si=v2Xy4vK_iNB-dmKl',
       icon: Youtube,
       color: 'from-red-500 to-red-600'
     },
     { 
       label: 'LINKEDIN', 
       value: 'Ellenex properties ', 
-      url: 'https://linkedin.com/company/@Ellenex property ',
+      url: 'https://www.linkedin.com/in/ellenex-property-831915361?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app ',
       icon: Linkedin,
       color: 'from-blue-700 to-blue-800'
     },
